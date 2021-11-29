@@ -7,7 +7,7 @@
     background: linear-gradient(rgba(255,255,255, 0.5),
     rgba(255,255,255, 0.5)
     ),
-    url(https://img.wallpapersafari.com/desktop/1440/900/69/40/0cp76g.jpg);
+    url(https://www.rspsphoto.com/wp-content/uploads/2018/03/SBT_4141-min.jpg);
     background-size: cover;
 }
 
@@ -39,6 +39,11 @@
     color: white;
     border-radius: 10px;
     padding: 10px;
+}
+
+.loginButton:disabled{
+    cursor: not-allowed;
+    background-color: rgb(3, 1, 1);
 }
 
 .loginRegisterButton{

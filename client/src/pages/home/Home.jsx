@@ -1,14 +1,26 @@
 import Header from "../../components/header/Header"
 import Posts from "../../components/posts/Posts"
+import { useEffect, useState } from "react"
 import Sidebar from "../../components/sidebar/Sidebar"
 import './home.css'
-import { Link } from "react-router-dom"
+import axios from "axios"
+import { useLocation } from "react-router-dom"
 export default function Home() {
+    const [posts, setPosts] = useState([]);
+    const {search} = useLocation();
+
+    useEffect(()=>{
+        const fetchPosts = async() =>{
+            const res = await axios.get('/posts'+search)
+            setPosts(res.data)
+        }
+        fetchPosts()
+    }, [search])
     return (
         <>
             <Header /> 
         <div className="home">
-            <Link className="link" to="/post/:postId"><Posts /></Link>
+            <Posts posts={posts}/>
             <Sidebar />
         </div>
         </>
